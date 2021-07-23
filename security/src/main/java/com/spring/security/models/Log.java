@@ -4,17 +4,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.UUID;
 
 @Entity
 @Table(name = "log")
 public class Log {
     @Id
-    @Column(name = "id",columnDefinition = "uuid")
-    private UUID Id;
+    @Column(name = "id")
+    private Long Id;
 
     @Column(name = "modified_by")
-    private UUID modifiedBy;
+    private Long modifiedBy;
 
     @Column(name = "modified_time")
     private long modifiedTime;
@@ -28,19 +27,19 @@ public class Log {
     @Column(name="doi_tuong")
     private String doiTuong;
 
-    public UUID getId() {
+    public Long getId() {
         return Id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         Id = id;
     }
 
-    public UUID getModifiedBy() {
+    public Long getModifiedBy() {
         return modifiedBy;
     }
 
-    public void setModifiedBy(UUID modifiedBy) {
+    public void setModifiedBy(Long modifiedBy) {
         this.modifiedBy = modifiedBy;
     }
 

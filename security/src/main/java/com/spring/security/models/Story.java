@@ -44,7 +44,7 @@ public class Story extends General {
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Collection<Category> categories;
 
-    @OneToMany(mappedBy = "storyId",cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+    @OneToMany(mappedBy = "storyId",fetch = FetchType.LAZY,orphanRemoval = true)
     private Collection<Chapter> chapters;
 
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)

@@ -6,10 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Repository
-public interface ChapterRepository extends JpaRepository<Chapter, UUID> {
+public interface ChapterRepository extends JpaRepository<Chapter, Long> {
 
-    Optional<Chapter> findById(UUID id);
+    Optional<Chapter> findById(Long id);
 }

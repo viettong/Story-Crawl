@@ -2,7 +2,6 @@ package com.spring.security.models;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.UUID;
 
 @Entity
 @Table(name = "author")
@@ -24,11 +23,11 @@ public class Author extends General {
     private String infoStk;
 
     @Column(name = "user_id")
-    private UUID userId;
+    private Long userId;
 
     @ManyToMany(mappedBy = "categories",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Collection<Story> stories;
-    private UUID story_id;
+    private Long story_id;
 
 
     public String getName() {
@@ -71,11 +70,11 @@ public class Author extends General {
         this.infoStk = infoStk;
     }
 
-    public UUID getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(UUID userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 }

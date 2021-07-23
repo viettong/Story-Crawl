@@ -1,28 +1,19 @@
-package com.spring.security.models;
+package com.spring.security.DTO;
 
 import javax.persistence.*;
 
-@MappedSuperclass
-public abstract class General {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+public abstract class GeneralDTO {
+    
     private Long Id;
-
-    @Column(name = "created_by")
+    
     private Long createdBy;
 
-    @Column(name = "created_time")
-    private long createdTime;
+    private Long createdTime;
 
-    @Column(name = "modified_by")
     private Long modifiedBy;
 
-    @Column(name = "modified_time")
-    private long modifiedTime;
+    private Long modifiedTime;
 
-    @Column(name = "enable")
     private boolean enable;
 
     public boolean isEnable() {
@@ -49,11 +40,11 @@ public abstract class General {
         this.createdBy = createdBy;
     }
 
-    public long getCreatedTime() {
+    public Long getCreatedTime() {
         return createdTime;
     }
 
-    public void setCreatedTime(long createdTime) {
+    public void setCreatedTime(Long createdTime) {
         this.createdTime = createdTime;
     }
 
@@ -65,11 +56,12 @@ public abstract class General {
         this.modifiedBy = modifiedBy;
     }
 
-    public long getModifiedTime() {
+    public Long getModifiedTime() {
         return modifiedTime;
     }
 
-    public void setModifiedTime(long modifiedTime) {
+    public void setModifiedTime(Long modifiedTime) {
         this.modifiedTime = modifiedTime;
     }
+
 }

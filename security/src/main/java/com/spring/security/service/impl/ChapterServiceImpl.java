@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class ChapterServiceImpl implements ChapterService {
@@ -16,7 +15,7 @@ public class ChapterServiceImpl implements ChapterService {
     ChapterRepository chapterRepository;
 
     @Override
-    public Optional<Chapter> findById(UUID id) {
+    public Optional<Chapter> findById(Long id) {
         return chapterRepository.findById(id);
     }
 }

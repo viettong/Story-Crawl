@@ -4,7 +4,6 @@ package com.spring.security.models;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.util.UUID;
 
 @Entity
 @Table(name = "truyen_mp3")
@@ -14,7 +13,7 @@ public class AudioStory extends General {
     private String reader;
 
     @Column(name = "story_id")
-    private UUID storyId;
+    private Long storyId;
 
     @Column(name = "phan")
     private String chapter;
@@ -30,11 +29,11 @@ public class AudioStory extends General {
         this.reader = reader;
     }
 
-    public UUID getStoryId() {
+    public Long getStoryId() {
         return storyId;
     }
 
-    public void setStoryId(UUID storyId) {
+    public void setStoryId(Long storyId) {
         this.storyId = storyId;
     }
 

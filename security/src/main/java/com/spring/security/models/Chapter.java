@@ -2,8 +2,6 @@ package com.spring.security.models;
 
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.UUID;
 
 @Entity
 @Table(name = "chapter")
@@ -15,11 +13,12 @@ public class Chapter extends General {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "content",columnDefinition = "TEXT")
-    private String content;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "chapter_id")
+    private ChapterContent chapterContent;
 
     @Column(name = "story_id")
-    private UUID storyId;
+    private Long storyId;
 
     public int getChapNumber() {
         return chapNumber;
@@ -37,11 +36,19 @@ public class Chapter extends General {
         this.title = title;
     }
 
-    public String getContent() {
-        return content;
+    public ChapterContent getChapterContent() {
+        return chapterContent;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setChapterContent(ChapterContent chapterContent) {
+        this.chapterContent = chapterContent;
+    }
+
+    public Long getStoryId() {
+        return storyId;
+    }
+
+    public void setStoryId(Long storyId) {
+        this.storyId = storyId;
     }
 }
