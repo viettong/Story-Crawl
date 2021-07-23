@@ -12,17 +12,6 @@ public class ChapterContent {
     @Column(name = "content",columnDefinition = "TEXT")
     private String content;
 
-    @OneToOne(mappedBy = "chapterContent",fetch = FetchType.LAZY)
-    private Chapter chapter;
-
-    public Chapter getChapter() {
-        return chapter;
-    }
-
-    public void setChapter(Chapter chapter) {
-        this.chapter = chapter;
-    }
-
     public Long getId() {
         return id;
     }

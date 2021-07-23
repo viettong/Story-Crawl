@@ -5,6 +5,15 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
+@NamedEntityGraph(name = "storyGraph", attributeNodes = {
+        @NamedAttributeNode("name"),
+        @NamedAttributeNode("thumbnail"),
+        @NamedAttributeNode("license"),
+        @NamedAttributeNode("shortDescription"),
+        @NamedAttributeNode("translate"),
+        @NamedAttributeNode("categories"),
+        @NamedAttributeNode("authors"),
+})
 @Table(name = "story")
 public class Story extends General {
     @Column(name = "name")

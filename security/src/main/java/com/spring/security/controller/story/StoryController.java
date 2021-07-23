@@ -1,6 +1,7 @@
 package com.spring.security.controller.story;
 
 
+import com.spring.security.DTO.story.StoryDTO;
 import com.spring.security.models.Story;
 import com.spring.security.service.story.StoryService;
 import javassist.NotFoundException;
@@ -20,9 +21,10 @@ public class StoryController {
     StoryService storyService;
 
     @RequestMapping(value = "/story/{id}",method = RequestMethod.GET,produces = "application/json")
-    public ResponseEntity<Story> getStory(@PathVariable(name = "id")Long id) throws NotFoundException {
+    public ResponseEntity<StoryDTO> getStory(@PathVariable(name = "id")Long id) throws NotFoundException {
         Optional<Story> story = storyService.findById(id);
         story.orElseThrow(()-> new NotFoundException("Not Found"));
-        return new ResponseEntity<>(story.get(), HttpStatus.OK);
+        StoryDTO storyDTO = new StoryDTO(story.get());
+        return new ResponseEntity<>(storyDTO, HttpStatus.OK);
     }
 }

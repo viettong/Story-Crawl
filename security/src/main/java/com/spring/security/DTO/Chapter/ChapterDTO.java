@@ -25,14 +25,14 @@ public class ChapterDTO {
 
     private String title;
 
-    private ChapterContentDTO chapterContentDTO;
+    private String content;
 
     private Long storyId;
 
     public ChapterDTO(Chapter chapter){
         this.chapNumber = chapter.getChapNumber();
         this.title = chapter.getTitle();
-        this.chapterContentDTO = new ChapterContentDTO(chapter.getChapterContent());
+        this.content = chapter.getContent();
         this.storyId = chapter.getStoryId();
         this.createdBy = (chapter.getCreatedBy());
         this.createdTime = (chapter.getCreatedTime());
