@@ -17,8 +17,7 @@ public class CrawlController {
 
     @GetMapping("/crawl")
     public void crawl(@RequestParam("url") String url) throws IOException {
-        crawlService.crawlOneChapter(url);
-        System.out.println(url);
+        crawlService.crawlAll(url);
     }
 
 }
