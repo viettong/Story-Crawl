@@ -5,15 +5,6 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@NamedEntityGraph(name = "storyGraph", attributeNodes = {
-        @NamedAttributeNode("name"),
-        @NamedAttributeNode("thumbnail"),
-        @NamedAttributeNode("license"),
-        @NamedAttributeNode("shortDescription"),
-        @NamedAttributeNode("translate"),
-        @NamedAttributeNode("categories"),
-        @NamedAttributeNode("authors"),
-})
 @Table(name = "story")
 public class Story extends General {
     @Column(name = "name")
@@ -25,8 +16,82 @@ public class Story extends General {
     @Column(name = "license")
     private boolean license;
 
-    @Column(name = "short_description",columnDefinition = "TEXT")
+    @Column(name = "short_description", columnDefinition = "TEXT")
     private String shortDescription;
+
+    @Column(name = "is_full")
+    private boolean full;
+
+    @Column(name = "chapter_count")
+    private int chapterCount;
+
+    @Column(name = "source")
+    private String source;
+
+    @Column(name = "bien_dich")
+    private String nguoiBienDich;
+
+
+    @Column(name = "view_count")
+    private String viewCount;
+
+    @Column(name = "rate_star")
+    private String rateStartEvg;
+
+    @Column(name = "rate_count")
+    private String rateCount;
+
+    public String getViewCount() {
+        return viewCount;
+    }
+
+    public void setViewCount(String viewCount) {
+        this.viewCount = viewCount;
+    }
+
+    public String getRateStartEvg() {
+        return rateStartEvg;
+    }
+
+    public void setRateStartEvg(String rateStartEvg) {
+        this.rateStartEvg = rateStartEvg;
+    }
+
+    public String getRateCount() {
+        return rateCount;
+    }
+
+    public void setRateCount(String rateCount) {
+        this.rateCount = rateCount;
+    }
+
+    public boolean isLicense() {
+        return license;
+    }
+
+    public int getChapterCount() {
+        return chapterCount;
+    }
+
+    public void setChapterCount(int chapterCount) {
+        this.chapterCount = chapterCount;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public String getNguoiBienDich() {
+        return nguoiBienDich;
+    }
+
+    public void setNguoiBienDich(String nguoiBienDich) {
+        this.nguoiBienDich = nguoiBienDich;
+    }
 
     public String getShortDescription() {
         return shortDescription;
@@ -47,16 +112,16 @@ public class Story extends General {
     @Column(name = "translate")
     private boolean translate;
 
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "story_category",
             joinColumns = @JoinColumn(name = "story_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Collection<Category> categories;
 
-    @OneToMany(mappedBy = "storyId",fetch = FetchType.LAZY,orphanRemoval = true)
+    @OneToMany(mappedBy = "storyId", fetch = FetchType.LAZY, orphanRemoval = true)
     private Collection<Chapter> chapters;
 
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "story_author",
             joinColumns = @JoinColumn(name = "story_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id"))
@@ -109,5 +174,13 @@ public class Story extends General {
 
     public void setTranslate(boolean translate) {
         this.translate = translate;
+    }
+
+    public boolean isFull() {
+        return full;
+    }
+
+    public void setFull(boolean full) {
+        this.full = full;
     }
 }
