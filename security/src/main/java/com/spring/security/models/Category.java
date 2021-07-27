@@ -17,6 +17,15 @@ public class Category extends General {
     @ManyToMany(mappedBy = "categories",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Collection<Story> stories;
 
+    public Category() {
+
+    }
+
+    public Category(String name, String code) {
+        this.name = name;
+        this.code = code;
+    }
+
     public String getName() {
         return name;
     }
@@ -40,4 +49,9 @@ public class Category extends General {
     public void setStories(Collection<Story> stories) {
        this.stories = stories;
     }
+
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
 }

@@ -8,6 +8,7 @@ import com.spring.security.models.Chapter;
 import com.spring.security.models.Story;
 import lombok.Data;
 
+import javax.persistence.Column;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
@@ -35,6 +36,20 @@ public class StoryDTO {
 
     private String shortDescription;
 
+    private boolean full;
+
+    private int chapterCount;
+
+    private String source;
+
+    private String nguoiBienDich;
+
+    private String viewCount;
+
+    private String rateStartEvg;
+
+    private String rateCount;
+
     public void setAuthors(Collection<Author> authors) {
         this.authors = authors;
     }
@@ -61,5 +76,12 @@ public class StoryDTO {
             this.authors = story.getAuthors();
             this.categories = getCategories();
             this.chapters = story.getChapters().stream().map(ChapterDTO::new).collect(Collectors.toList());
+            this.full = story.isFull();
+            this.chapterCount =story.getChapterCount();
+            this.source = story.getSource();
+            this.nguoiBienDich =story.getNguoiBienDich();
+            this.viewCount = story.getViewCount();
+            this.rateStartEvg = story.getRateStartEvg();
+            this.rateCount = story.getRateCount();
     }
 }

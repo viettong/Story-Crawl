@@ -5,7 +5,7 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "author")
-public class Author extends General {
+public class Author extends General{
 
     @Column(name = "name")
     private String name;
@@ -13,8 +13,8 @@ public class Author extends General {
     @Column(name = "fb_url")
     private String fbUrl;
 
-    @Column(name = "nickname")
-    private String nickname;
+    @Column(name = "tag")
+    private String tag;
 
     @Column(name = "stk")
     private String stk;
@@ -29,6 +29,34 @@ public class Author extends General {
     private Collection<Story> stories;
     private Long story_id;
 
+    public Author() {
+
+    }
+
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public Collection<Story> getStories() {
+        return stories;
+    }
+
+    public void setStories(Collection<Story> stories) {
+        this.stories = stories;
+    }
+
+    public Long getStory_id() {
+        return story_id;
+    }
+
+    public void setStory_id(Long story_id) {
+        this.story_id = story_id;
+    }
 
     public String getName() {
         return name;
@@ -44,14 +72,6 @@ public class Author extends General {
 
     public void setFbUrl(String fbUrl) {
         this.fbUrl = fbUrl;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
     }
 
     public String getStk() {
@@ -77,4 +97,10 @@ public class Author extends General {
     public void setUserId(Long userId) {
         this.userId = userId;
     }
+
+    public Author(String name, String tag) {
+        this.name = name;
+        this.tag = tag;
+    }
+
 }

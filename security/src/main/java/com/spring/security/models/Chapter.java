@@ -61,4 +61,6 @@ public class Chapter extends General {
     public void setStoryId(Long storyId) {
         this.storyId = storyId;
     }
+
+
 }
