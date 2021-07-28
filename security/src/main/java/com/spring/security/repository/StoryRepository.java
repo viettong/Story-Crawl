@@ -14,4 +14,5 @@ public interface StoryRepository extends JpaRepository<Story,Long> {
 
 
     Optional<Story> findById(Long id);
+    Optional<Story> findByName(String name);
 }

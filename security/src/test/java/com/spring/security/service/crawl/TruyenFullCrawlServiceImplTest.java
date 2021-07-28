@@ -3,6 +3,8 @@ package com.spring.security.service.crawl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
@@ -33,6 +35,33 @@ class TruyenFullCrawlServiceImplTest {
         String[] tag =  url.split("/");
 
         System.out.println(tag[tag.length-1]);
+
+    }
+    @Test
+    public  void  Test_local_date(){
+
+         LocalDate date = LocalDate.now();
+         int month = date.getMonthValue();
+         int today = date.getDayOfMonth();
+
+         date = date.minusDays(today - 1); // Set to start of month
+         DayOfWeek weekday = date.getDayOfWeek();
+         int value = weekday.getValue(); // 1 = Monday, ... 7 = Sunday
+
+         System.out.println("Mon Tue Wed Thu Fri Sat Sun");
+         for (int i = 1; i < value; i++)
+             System.out.print(" ");
+         while (date.getMonthValue() == month)
+             {
+             System.out.printf("%3d", date.getDayOfMonth());
+             if (date.getDayOfMonth() == today)
+                 System.out.print("*");
+             else
+             System.out.print(" ");
+             date = date.plusDays(1);
+             if (date.getDayOfWeek().getValue() == 1) System.out.println();
+             }
+         if (date.getDayOfWeek().getValue() != 1) System.out.println();
 
     }
 

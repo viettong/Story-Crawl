@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface ChapterRepository extends JpaRepository<Chapter, Long> {
 
     Optional<Chapter> findById(Long id);
+    Optional<Chapter> findByTitleAndStoryId(String title,Long storyId);
 }
