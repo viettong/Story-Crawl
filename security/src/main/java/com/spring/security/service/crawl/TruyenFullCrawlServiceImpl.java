@@ -87,7 +87,6 @@ public class TruyenFullCrawlServiceImpl implements CrawlService {
             chapter.setChapNumber(parseIntFromChapterTitle(title.text()));
             chapter.setStoryId(storyId);
             Elements content = document.select("div#chapter-c");
-            System.out.println(content.toString());
             content.select("div").stream().forEach((c) -> c.remove());
             content.select("em").stream().forEach((c) -> c.remove());
             chapterContent.setContent(Jsoup.clean(content.toString(), Whitelist.basic()));
